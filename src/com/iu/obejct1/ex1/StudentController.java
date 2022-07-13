@@ -29,7 +29,7 @@ public class StudentController {
 				break;
 			case 2:
 				//viewAll을 써서 출력
-				sv.viewAll(students);
+				sv.view(students);
 				
 				System.out.println("2");
 				break;
@@ -37,9 +37,9 @@ public class StudentController {
 				Student ff= ss.findStudent(students);
 				
 				if(ff == null) {
-					sv.viewMessage("입력한 번호의 학생이 존재하지않습니다.");
+					sv.view("입력한 번호의 학생이 존재하지않습니다.");
 				}else {
-					sv.viewOne(ff);
+					sv.view(ff);
 				}
 				//student =sv.viewOne();
 				//ss.findStudent(students);
