@@ -20,8 +20,12 @@ public class Object2Main3 {
 		member.age = 30;
 		member.email= "suji@gmail.com";
 		System.out.println("웅냥냥"+member.age);
-		m3.info2(member);
+		m3.info2(member);	//member에 있는 값을보내는것
 		System.out.println(member.age);
+		//왜 100이 나올까? 
 	}
 
 }
+
+//메서드 중간 {} 안에 있는 변수들은 다 stack에 쌓인다
+//멤버 선언 -내가담을 데이터만큼 메모리를 확보 하는것
