@@ -8,8 +8,12 @@ public class StudentController {
 	public void start() {
 		Scanner scan = new Scanner( System.in);
 		
+		StudentService ss = new StudentService();
+		StudentView sv = new StudentView();
+
 		boolean check = true;
-		
+		Student[] students =null;
+		Student student = null;
 		while (check) {
 			System.out.println("1. 학생 정보 입력");
 			System.out.println("2. 학생 정보 조회");
@@ -20,12 +24,26 @@ public class StudentController {
 			int select = scan.nextInt();
 			switch (select) {
 			case 1:
+				students = ss.makeStudents();
 				System.out.println("1");
 				break;
 			case 2:
+				//viewAll을 써서 출력
+				sv.viewAll(students);
+				
 				System.out.println("2");
 				break;
 			case 3:
+				Student ff= ss.findStudent(students);
+				
+				if(ff == null) {
+					sv.viewMessage("입력한 번호의 학생이 존재하지않습니다.");
+				}else {
+					sv.viewOne(ff);
+				}
+				//student =sv.viewOne();
+				//ss.findStudent(students);
+				
 				System.out.println("3");
 				break;
 			case 4:

@@ -8,9 +8,9 @@ public class Object3Main1 {
 		//멤버메서드를 호출하려면 객체부터 생성해야한다
 		ReturnTest rt = new ReturnTest();
 		int num=0;
-//		rt.info();      
-//		int num =rt.makeRandom();	//2
-//		System.out.println(num);
+		rt.info();      
+		num =rt.makeRandom();	//2
+		System.out.println(num);
 		
 
 		System.out.println("===========================================");
@@ -20,6 +20,14 @@ public class Object3Main1 {
 		for(int i=0; i<nums.length; i++) {
 			System.out.println(nums[i]);
 		}
+		
+			
+			
+			Account ac= rt.makeAccount();
+			System.out.println(ac.title);
+			System.out.println(ac.host);
+			System.out.println(ac.nums);
+			System.out.println(ac.balance);
 
 	}
 

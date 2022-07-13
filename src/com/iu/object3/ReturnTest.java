@@ -1,8 +1,24 @@
 package com.iu.object3;
 
 import java.util.Random;
+import java.util.Scanner;
 
 public class ReturnTest {
+	
+	//makeAccount
+	//통장 타이틀 예금주 계좌번호,잔액 입력받아서 리턴
+	public Account makeAccount() {
+		Scanner scan =new Scanner(System.in);
+		Account ac = new Account();
+		ac.title ="자유입출금";
+		ac.host="iu";
+		ac.nums ="1234567";
+		ac.balance=500L;
+		
+		return ac;
+	}
+	
+	
 	
 	public int makeRandom() {
 			Random random = new Random();
