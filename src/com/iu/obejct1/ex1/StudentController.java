@@ -4,15 +4,26 @@ import java.util.Scanner;
 
 public class StudentController {
 	
+	Scanner scan ;
+	StudentService ss ;
+	StudentView sv ;
+	Student[] students;
 	//훙냔ㅇ냥 아 개졸령 ㅇㅅㅇ~
+	
+	public StudentController() {
+		scan = new Scanner(System.in);
+		sv = new StudentView();
+		ss = new StudentService();
+		//sc는 ss를 참조하겠다
+		//sc는 sv를 참조하겠다.
+		//sv객체를 sc에서 만들고 있음
+		//ss객체를 sc에서 만들고 있음
+	}
+	
 	public void start() {
-		Scanner scan = new Scanner( System.in);
-		
-		StudentService ss = new StudentService();
-		StudentView sv = new StudentView();
 
 		boolean check = true;
-		Student[] students =null;
+	
 		Student student = null;
 		while (check) {
 			System.out.println("1. 학생 정보 입력");
@@ -41,19 +52,19 @@ public class StudentController {
 				}else {
 					sv.view(ff);
 				}
-				//student =sv.viewOne();
-				//ss.findStudent(students);
-				
 				System.out.println("3");
 				break;
 			case 4:
 				System.out.println("4");
 				break;
 			case 5:
+				//학생추가
+				ss.addStudent(students);
 				System.out.println("5");
 				break;
 			default:
 				System.out.println("종료중");
+				check =!check;
 			}
 			
 		}

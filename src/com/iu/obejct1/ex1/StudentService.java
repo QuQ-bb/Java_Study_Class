@@ -5,7 +5,48 @@ import java.util.Scanner;
 import javax.xml.stream.events.Namespace;
 
 public class StudentService {
-	Scanner scan = new Scanner(System.in);
+	Scanner scan;
+	//생성자 생성
+	public StudentService() {
+		scan = new Scanner(System.in);
+	}
+	
+	//addStudent메서드
+	//학생들의 정보를 받아서
+	//학생한명을 추가해주는것
+	//학생정보들을 리턴
+	
+	public Student[] addStudent(Student[] students) {
+		 
+		//추가할 학생이 들어갈 배열을 선언해준다.
+		Student[] students2 = new Student[students.length+1];
+		
+		for (int i= 0; i<students.length; i++) {
+			students2[i] = students[i];
+		}
+		System.out.println(students2[3]);
+		System.out.println(students[2]);
+		
+		System.out.println("추가할 학생의 이름을 입력해주세요.");
+		students2[students.length].name = scan.next();
+		System.out.println("추가할 학생의 번호를 입력해주세요.");
+		students2[students.length].num =scan.nextInt();
+		System.out.println("추가할 학생의 국어성적을 입력해주세요.");
+		students2[students.length].kor =scan.nextInt();
+		System.out.println("추가할 학생의 영어성적을 입력해주세요.");
+		students2[students.length].eng = scan.nextInt();
+		System.out.println("추가할 학생의 수학성적을 입력해주세요.");
+		students2[students.length].math =scan.nextInt();
+		
+		students2[students.length].total = students2[students.length].kor + students2[students.length].eng + students2[students.length].math;
+		students2[students.length].avg = students2[students.length].total/3.0;
+		
+		students =students2;
+		
+		return students;
+	}
+	
+	
 	
 	
 	
@@ -61,12 +102,14 @@ public class StudentService {
 			System.out.println("학생의 수학성적을 입력해주세요.");
 			student.math = scan.nextInt();
 			
-			student.total = student.kor+student.eng+student.math;
-			student.avg = student.total/3.0;
+			student.setTotal();
+			
+			//student.total = student.kor+student.eng+student.math;
+			//student.avg = student.total/3.0;
 			
 			students[i] = student;
-		}
+		}//for
 		return students;
-	}
+	}//makeStudents
 	
 }
