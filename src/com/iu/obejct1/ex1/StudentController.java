@@ -55,11 +55,12 @@ public class StudentController {
 				System.out.println("3");
 				break;
 			case 4:
+				students = ss.removeStudent(students);
 				System.out.println("4");
 				break;
 			case 5:
 				//학생추가
-				ss.addStudent(students);
+				students = ss.addStudent(students);
 				System.out.println("5");
 				break;
 			default:
