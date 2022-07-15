@@ -20,16 +20,20 @@ public class StudentService {
 		//학생을 삭제하기위해 새로운 배열을 생성해준다
 		System.out.println("정보를 삭제할 학생의 번호를 입력해주세요.");
 		int num =scan.nextInt();
-		
 		boolean check = false;
 		//일단 삭제할 번호와 일치하는 번호가 있는지 확인해준다
 		int i=0;
 		for(i=0; i<students.length; i++) {
 			if(num == students[i].getNum()) {
+				System.out.println("num= "+num);
+				System.out.println("getNum= "+ students[i].getNum());
+				check=!check;
 				break;
-			}else {
+			}
+			if(check) {
 				System.out.println("입력하신 번호와 일치하는 학생의 정보가 존재하지않습니다.");
 			}
+			
 		}//for문
 		Student[] students3 = new Student[students.length-1];
 		for(int j=0; j<students.length; j++) {
@@ -38,6 +42,11 @@ public class StudentService {
 			}//if문
 			students3[j] =students[j];
 		}//for문
+		
+		//==================================이 부분 다시 생각하기
+		//뭘로 비교해서 그 부분을 넘겨서 값을 대입해줄거냐
+		//students3[여기 넣을값은?]
+		
 		
 		  students=students3;
 		
@@ -142,6 +151,7 @@ public class StudentService {
 			student.setMath(scan.nextInt());
 			
 			student.setTotal();
+			student.setAvg();
 			
 			//student.total = student.kor+student.eng+student.math;
 			//student.avg = student.total/3.0;
